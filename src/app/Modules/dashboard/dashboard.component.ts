@@ -13,6 +13,8 @@ export class DashboardComponent implements OnInit {
   doughnutChartData: any;
 
   msgs: any[];
+  barChartDataDep: any;
+  barChartDataEch: any;
 
   constructor(translate: TranslateService) {
     this.barChartData = {
@@ -32,12 +34,34 @@ export class DashboardComponent implements OnInit {
         }
       ]
     }
+    this.barChartDataDep = {
+      labels: ['Java', 'PhP', 'C#', 'Python', 'Flutter and Ionic', 'RH', 'Marketing'],
+      datasets: [
+        {
+          label: 'N° Employee by department',
+          backgroundColor: '#42A5F5',
+          borderColor: '#1E88E5',
+          data: [20, 15, 30, 10, 20, 10, 6]
+        }
+      ]
+    }
+    this.barChartDataEch = {
+      labels: ['1', '2', '3', '4', '5', '6', '7'],
+      datasets: [
+        {
+          label: 'N° Employee by level',
+          backgroundColor: '#FFCE56',
+          borderColor: '#FFCE56',
+          data: [10, 6, 2, 5, 0, 2, 0]
+        }
+      ]
+    }
 
     this.doughnutChartData = {
       labels: ['Request Waiting', 'Request Treated', 'Request Canceled'],
       datasets: [
         {
-          data: [10, 100, 5],
+          data: [15, 80, 5],
           backgroundColor: [
             "#FFCE56",
             "#36A2EB",
