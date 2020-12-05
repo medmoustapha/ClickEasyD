@@ -12,15 +12,17 @@ import {FileType} from "../../../../core/models/file-type";
 })
 export class FileMainComponent implements OnInit {
  cols = [
-   {field: 'title', header: 'Designation'},
+
+   {field: 'type', header: 'Type'},
+   /*{field: 'title', header: 'Designation'},*/
    {field: 'description', header: 'Description'},
    {field: 'state', header: 'state'},
-   {field: 'type', header: 'Type'},
    {field: 'action', header: 'Actions'},
  ];
  files: any[] = [];
  User: Employee = JSON.parse(sessionStorage.getItem('currentUser'));
  file = ''
+  fileDelete: any;
   typeFiles: FileType[] = []
   constructor(private fileService: FileService, private messageService: MessageService,
               private fileTypeService: FileTypeService) { }
@@ -58,5 +60,22 @@ export class FileMainComponent implements OnInit {
   onReject() {
     this.messageService.clear('c');
     this.file= '';
+  }
+
+  deleteFile(employee) {
+    this.fileDelete = employee;
+    this.messageService.add({key: 'd', sticky: false, severity:'warn', detail:'Do you want to cancel this request?'});
+  }
+
+  onRejectDelete() {
+    this.messageService.clear('d');
+    this.file= '';
+  }
+
+  delete() {
+    this.fileService.delete(this.fileDelete.id).then(resp => {
+      this.onRejectDelete();
+      this.getFileByUser();
+    })
   }
 }

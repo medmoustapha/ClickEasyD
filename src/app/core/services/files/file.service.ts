@@ -114,7 +114,13 @@ export class FileService {
   edit(): Promise<File>{
     return Promise.resolve(new File());
   }
-  delete(): Promise<boolean>{
+  delete(id): Promise<boolean>{
+    this.files.forEach((value, index) => {
+      if (value.id === id){
+        this.files.splice(index, 1);
+        return;
+      }
+    })
     return Promise.resolve(true);
   }
 }
