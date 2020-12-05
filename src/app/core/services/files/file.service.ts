@@ -74,7 +74,6 @@ export class FileService {
         data.push(value);
       }
     });
-    console.log(data);
     return Promise.resolve(data);
   }
   getAll(): Promise<any>{
@@ -90,6 +89,7 @@ export class FileService {
     return Promise.resolve(data);
   }
   add(data): Promise<File>{
+    console.log(data);
     this.files.push({
       id: data.id,
       title: data.title,
@@ -99,6 +99,7 @@ export class FileService {
       type: data.type.value,
       file:  data.file,
     });
+    console.log(this.files);
     return Promise.resolve(new File());
   }
   validRequest(file): Promise<true>{
