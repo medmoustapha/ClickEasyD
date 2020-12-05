@@ -32,7 +32,7 @@ export class AddFileComponent implements OnInit {
   initForm(){
     this.form = this.formBuilder.group({
       id: this.fileService.files.length + 1,
-      title: ['', Validators.required],
+      title: [''],
       type: ['', Validators.required],
       employee: [this.user.id, Validators.required],
       state: ['Waiting'],

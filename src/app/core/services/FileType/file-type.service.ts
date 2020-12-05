@@ -12,11 +12,35 @@ export class FileTypeService {
     this.fileTypes = [
       {
       id: 1,
-      title: 'Employment contract'
+      title: 'Work certificate'
     },
       {
         id: 2,
-        title: 'Inless cerficate'
+        title: 'Salary sertificate(CNSS)'
+      },
+      {
+        id: 3,
+        title: 'Salary sertificate(Credit)'
+      },
+      {
+        id: 4,
+        title: 'incom tax sertificate'
+      },
+      {
+        id: 5,
+        title: 'certificate of non-beneficary credi'
+      },
+      {
+        id: 6,
+        title: 'Sodexo Card'
+      },
+      {
+        id: 7,
+        title: 'Identification Card'
+      },
+      {
+        id: 8,
+        title: 'Time keeping'
       }]
   }
   getAll(): Promise<any> {

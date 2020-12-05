@@ -63,7 +63,7 @@ export class EmployeesComponent implements OnInit {
 
     ref.onClose.subscribe((success: boolean) => {
       if (success) {
-        this.toastService.addSingle("success", "Mail send successfully", "");
+        this.toastService.addSingle("success", "Employee create successfully", "");
       }
     });
    /* const dialogConfig = new MatDialogConfig();

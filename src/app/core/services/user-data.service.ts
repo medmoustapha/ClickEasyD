@@ -31,7 +31,7 @@ export class UserDataService {
   getUserByUserNameAndPassword(userName: string, password: string): Promise<Employee> {
     let user: Employee = null;
     this.users.forEach(element => {
-      if (element.login === userName && element.password === password) {
+      if ((element.login === userName || element.cinNumber === userName) && element.password === password) {
         user = element;
       }
     });

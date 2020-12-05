@@ -19,10 +19,10 @@ export class AddEmployeeComponent implements OnInit {
   car: any;
   roles: any[] = [{
     id: "1",
-    label: "Administrateur"
+    label: "Administrtor"
   },{
     id: "2",
-    label: "Resource Humaine"
+    label: "HR Manager"
   },{
     id: "2",
     label: "Employee"
@@ -46,11 +46,14 @@ export class AddEmployeeComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       userName: ['', Validators.required],
+      cin: ['', [Validators.required, Validators.maxLength(8),
+                 Validators.minLength(8)]],
+      password: ['', Validators.required],
       adress: [''],
       phone: [''],
+      cnssNumber: [''],
+      cardNumber: [''],
       mail: [''],
-      cin: [''],
-      password: ['', Validators.required],
       role: ['', Validators.required],
       departmentID: ['', Validators.required],
       birthDate: [new Date()],

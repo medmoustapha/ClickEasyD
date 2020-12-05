@@ -1,7 +1,6 @@
-
   <div class="ui-g ui-fluid" *ngIf="addForm">
     <form [formGroup]="addForm">
-      <div class="ui-g-12">
+      <div class="ui-g-12" style="margin-bottom: -5px;">
         <div class="ui-g-4">
           <label for="firstName" class="label">First Name</label>
         </div>
@@ -9,7 +8,7 @@
           <input pInputText id="firstName" formControlName="firstName"/>
         </div>
       </div>
-      <div class="ui-g-12">
+      <div class="ui-g-12" style="margin-bottom: -5px;">
         <div class="ui-g-4">
           <label for="lasttName" class="label">last Name</label>
         </div>
@@ -17,12 +16,44 @@
           <input pInputText id="lasttName" formControlName="lastName"/>
         </div>
       </div>
-      <div class="ui-g-12">
+      <div class="ui-g-12" style="margin-bottom: -5px;">
+        <div class="ui-g-4">
+          <label class="label">Cin</label>
+        </div>
+        <div class="ui-g-8" style="margin-bottom: -5px;">
+          <input type="text" formControlName="cin" pInputText class="p-inputtext-lg">
+        </div>
+      </div>
+      <div class="ui-g-12" style="margin-bottom: -5px;">
+        <div class="ui-g-4">
+          <label class="label">CNSS Number</label>
+        </div>
+        <div class="ui-g-8">
+          <input type="text" formControlName="cnssNumber" pInputText class="p-inputtext-lg">
+        </div>
+      </div>
+      <div class="ui-g-12" style="margin-bottom: -5px;">
+        <div class="ui-g-4">
+          <label class="label">Card Number</label>
+        </div>
+        <div class="ui-g-8">
+          <input type="text" formControlName="cardNumber" pInputText class="p-inputtext-lg">
+        </div>
+      </div>
+      <div class="ui-g-12" style="margin-bottom: -5px;">
         <div class="ui-g-4">
           <label for="userName" class="label" class="label">Username</label>
         </div>
         <div class="ui-g-8">
           <input pInputText id="userName" formControlName="userName"/>
+        </div>
+      </div>
+      <div class="ui-g-12" style="margin-bottom: -5px;">
+        <div class="ui-g-4">
+          <label for="password" class="label">Password</label>
+        </div>
+        <div class="ui-g-8">
+          <input type="password" pInputText id="password" formControlName="password"/>
         </div>
       </div>
       <div class="ui-g-12">
@@ -33,30 +64,14 @@
           <p-calendar formControlName="birthDate" [showIcon]="true"></p-calendar>
         </div>
       </div>
-      <div class="ui-g-12">
-        <div class="ui-g-4">
-          <label class="label">Cin</label>
-        </div>
-        <div class="ui-g-8">
-          <input type="text" formControlName="cin" pInputText class="p-inputtext-lg">
-        </div>
-      </div>
-      <div class="ui-g-12">
+      <!--<div class="ui-g-12">
         <div class="ui-g-4">
           <label class="label">Adress</label>
         </div>
         <div class="ui-g-8">
           <input type="text" formControlName="adress" pInputText class="p-inputtext-lg">
         </div>
-      </div>
-      <div class="ui-g-12">
-        <div class="ui-g-4">
-          <label for="password" class="label">Password</label>
-        </div>
-        <div class="ui-g-8">
-          <input type="password" pInputText id="password" formControlName="password"/>
-        </div>
-      </div>
+      </div>-->
       <div class="ui-g-12">
         <div class="ui-g-4">
           <label class="label">Type Employee</label>
@@ -67,7 +82,6 @@
           </p-dropdown>
         </div>
       </div>
-
       <div class="ui-g-12">
         <div class="ui-g-4">
           <label class="label">Department</label>
@@ -82,5 +96,5 @@
   </div>
     <div class="ui-dialog-buttonpane ui-helper-clearfix">
       <button type="button" pButton icon="fa fa-close" (click)="onClose()" label="Cancel"></button>
-      <button type="button" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
+      <button type="button" pButton icon="fa fa-check" [disabled]="addForm.invalid" (click)="save()" label="Save"></button>
     </div>

@@ -11,7 +11,7 @@ export class FileService {
     this.files =[
       {
         id: 1,
-        title: 'Contrat travail',
+        title: 'Employment contract',
         state: 'Waiting',
         type: 1,
         file: '',
@@ -19,7 +19,7 @@ export class FileService {
       },
       {
         id: 2,
-        title: 'Contrat travail',
+        title: 'Inless cerficate',
         state: 'Waiting',
         type: 1,
         file: '',
@@ -27,7 +27,7 @@ export class FileService {
       },
       {
         id: 3,
-        title: 'Inless cerficate',
+        title: 'Employment contract',
         state: 'Waiting',
         type: 1,
         file: '',
@@ -35,7 +35,7 @@ export class FileService {
       },
       {
         id: 4,
-        title: 'Contrat travail',
+        title: 'Inless cerficate',
         state: 'Waiting',
         type: 2,
         file: '',
@@ -43,7 +43,7 @@ export class FileService {
       },
       {
         id: 5,
-        title: 'Contrat travail',
+        title: 'Employment contract',
         state: 'Waiting',
         type: 1,
         file: '',
@@ -51,7 +51,7 @@ export class FileService {
       },
       {
         id: 6,
-        title: 'Contrat travail',
+        title: 'Employment contract',
         state: 'Waiting',
         type: 1,
         file: '',

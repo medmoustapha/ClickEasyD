@@ -36,12 +36,11 @@
         <div class="product-grid-item card">
           <div class="product-grid-item-top">
             <div>
-              <span class="product-category" style="font-size: 16px; font-weight: bold">{{product.title.toUpperCase()}}</span>
+              <span class="product-category" style="font-size: 16px; font-weight: bold">{{getType(product.type).toUpperCase()}}</span>
             </div>
           </div>
           <div class="product-grid-item-content" style="font-size: 14px; font-weight: bold">
             <div class="product-description">Employee : {{getEmployee(product.employee) }}</div>
-            <div class="product-description">Type : {{getType(product.type)}}</div>
             <div class="product-description">Description : {{product.description}}</div>
           </div>
           <div class="product-grid-item-content" style="font-size: 12px; font-weight: bold">
@@ -59,10 +58,10 @@
             </div>
           </div>
           <div class="product-grid-item-bottom">
-            <button   class="editRow btn btn-success btn-sm btn-md waves-effect waves-light"
+            <button [disabled]="product.file === ''"  class="editRow btn btn-success btn-sm btn-md waves-effect waves-light"
                       (click)="valid(product);"
-                      style=" margin: 0px 5px; padding: 8px 12px;float: right;">
-              <i class="fas fa-clipboard-check" style="height: 10px"></i>
+                      style=" margin: 4px 5px; padding: 8px 12px;float: right;">
+              <i class="pi pi-save" style="height: 10px"></i>
             </button>
           </div>
         </div>

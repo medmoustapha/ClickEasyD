@@ -8,4 +8,7 @@ export class Employee {
     login: string;
     password: string;
     role: string;
+    cinNumber?: string;
+    cardNumber?: string;
+    cnssNumber?: string;
 }
