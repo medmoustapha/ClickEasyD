@@ -22,7 +22,7 @@ import { ThemeService } from './core/services/theme.service';
 import { ApplicationStateService } from './core/services/application-state.service';
 import { UserDataService } from './core/services/user-data.service'
 import { MenuDataService } from './core/services/menu-data.service';
-import { EmployeeDataService } from './employees/employee-data.service';
+import { EmployeeDataService } from './Modules/employees/employee-data.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { UserContextService } from './core/services/user-context.service';
 import { AppCommonModule } from './app.common.module';

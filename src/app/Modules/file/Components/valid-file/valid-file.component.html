@@ -1,0 +1,75 @@
+<app-header-breadcrumb></app-header-breadcrumb>
+<div class="col col-md-12">
+  <p-dataView #dv [value]="files"
+              (onPage)="files.length"
+              [paginator]="true"
+              [rows]="5"
+              [rowsPerPageOptions]="[5,10,20,50,100]"
+              filterBy="title"
+              [sortField]="sortField"
+              [sortOrder]="sortOrder"
+              layout="grid">
+    <ng-template pTemplate="header">
+      <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+      </div>
+    </ng-template>
+    <ng-template let-product pTemplate="listItem">
+      <div class="p-col-12">
+        <div class="product-list-item">
+          <div class="product-list-detail">
+            <div class="product-name">{{product.title}}</div>
+            <div class="product-description">{{product.description}}</div>
+            <p-rating [ngModel]="product.type" [readonly]="true" [cancel]="false"></p-rating>
+            <span class="product-category">{{product.employee}}</span>
+          </div>
+          <div class="product-list-action">
+            <span class="product-price">dfdsfdfsdf</span>
+            <p-button icon="pi pi-shopping-cart" label="Add to Cart" [disabled]="product.type === 'OUTOFSTOCK'"></p-button>
+            <span [class]="'product-badge status-' + product.employee.toLowerCase()">{{product.employee}}</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template let-product pTemplate="gridItem">
+      <div class="p-col-12 p-md-4">
+        <div class="product-grid-item card">
+          <div class="product-grid-item-top">
+            <div>
+              <span class="product-category" style="font-size: 16px; font-weight: bold">{{product.title.toUpperCase()}}</span>
+            </div>
+          </div>
+          <div class="product-grid-item-content" style="font-size: 14px; font-weight: bold">
+            <div class="product-description">Employee : {{getEmployee(product.employee) }}</div>
+            <div class="product-description">Type : {{getType(product.type)}}</div>
+            <div class="product-description">Description : {{product.description}}</div>
+          </div>
+          <div class="product-grid-item-content" style="font-size: 12px; font-weight: bold">
+            <div class="product-list-action">
+              <span class="product-price">File:</span>
+              <!--<input type="file"  (change)="onSelectedFile($event, product)"/>
+              <button style="display:block; height:30px;"
+                      onclick="document.getElementById('getFile').click()">
+                {{'Choose a file' | translate}}
+              </button>-->
+<!--              <label for="getFile" class="btn">Select file</label>-->
+              <input type="file" title="Choose a file"    class="form-control" id="getFile"
+                     (change)="onSelectedFile($event, product)" placeholder="Choose a file"
+                     accept="*/*, application/vnd.ms-excel" >
+            </div>
+          </div>
+          <div class="product-grid-item-bottom">
+            <button   class="editRow btn btn-success btn-sm btn-md waves-effect waves-light"
+                      (click)="valid(product);"
+                      style=" margin: 0px 5px; padding: 8px 12px;float: right;">
+              <i class="fas fa-clipboard-check" style="height: 10px"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
+
+</div>
+
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>

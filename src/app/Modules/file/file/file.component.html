@@ -1,0 +1,10 @@
+<app-header-breadcrumb></app-header-breadcrumb>
+<p-panel >
+  <p-header style="font-size: 18px; font-weight: bold">
+    {{'Files' | translate}}
+    <button  style="float: right"  pButton pRipple
+             type="button" icon="pi pi-refresh" (click)="showDialogToAdd()"
+             class="p-button-rounded p-button-text"></button>
+  </p-header>
+  <app-file-main></app-file-main>
+</p-panel>

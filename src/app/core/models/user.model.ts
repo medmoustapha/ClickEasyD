@@ -1,3 +1,5 @@
+import {Role} from "./role";
+
 export class User {
     constructor() {
         this.userId = null;
@@ -12,4 +14,5 @@ export class User {
     password: string;
     emailId: string;
     birthDate: Date;
+    role: Role;
 }

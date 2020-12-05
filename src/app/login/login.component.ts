@@ -6,6 +6,7 @@ import { RouteStateService } from '../core/services/route-state.service';
 import { SessionService } from '../core/services/session.service';
 import { TranslateService } from '@ngx-translate/core';
 import { UserContextService } from '../core/services/user-context.service';
+import {Employee} from "../core/models/employee.model";
 
 @Component({
   selector: 'app-login',
@@ -31,19 +32,26 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.userName = "";
-    this.password = "";    
+    this.password = "";
     this.locale = this.sessionService.getItem("ng-prime-language");
   }
 
-  onClickLogin() {    
-    let user: User = this.userService.getUserByUserNameAndPassword(this.userName, this.password);
-    if (user) {
-      this.userContextService.setUser(user);
-      this.routeStateService.add("Dashboard", '/main/dashboard', null, true);
+  onClickLogin() {
+    this.userService.getUserByUserNameAndPassword(this.userName, this.password).then(user => {
+      if (user) {
+        this.userContextService.setUser(user);
+        if(user.role === 'Employee'){
+          this.routeStateService.add("Files", '/main/files', null, true);
+        } else {
+          this.routeStateService.add("Dashboard", '/main/dashboard', null, true);
+
+        }
+        return;
+      }
+      this.toastService.addSingle('error', '', 'Invalid user.');
       return;
-    }
-    this.toastService.addSingle('error', '', 'Invalid user.');
-    return;
+    });
+
   }
 
   onLanguageChange($event) {

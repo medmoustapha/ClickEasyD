@@ -1,0 +1,5 @@
+::ng-deep .ui-toast .ui-toast-message.ui-toast-message-warn {
+  background-color: #ffffff !important;
+  border: 0 none;
+  color: rgba(250, 254, 236, 0.79);
+}

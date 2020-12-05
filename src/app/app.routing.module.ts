@@ -11,14 +11,14 @@ const appRoutes: Routes = [
     },
     {
         path: 'register',
-        loadChildren: () => import('./register-user/register-user.module').then(m => m.RegisterUserModule)
+        loadChildren: () => import('./Modules/register-user/register-user.module').then(m => m.RegisterUserModule)
     },
     {
         path: 'main',
         component: LayoutComponent,
         children: [{
             path: 'dashboard',
-            loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+            loadChildren: () => import('./Modules/dashboard/dashboard.module').then(m => m.DashboardModule),
             canActivate: [AuthGuard]
         },
         {
@@ -28,17 +28,32 @@ const appRoutes: Routes = [
         },
         {
             path: 'employees',
-            loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule),
+            loadChildren: () => import('./Modules/employees/employees.module').then(m => m.EmployeesModule),
             canActivate: [AuthGuard]
         },
         {
             path: 'aboutus',
-            loadChildren: () => import('./aboutus/aboutus.module').then(m => m.AboutUsModule),
+            loadChildren: () => import('./Modules/aboutus/aboutus.module').then(m => m.AboutUsModule),
             canActivate: [AuthGuard]
         },
         {
             path: 'contactus',
             loadChildren: () => import('./contactus/contactus.module').then(m => m.ContactUsModule),
+            canActivate: [AuthGuard]
+        },
+        {
+            path: 'files',
+            loadChildren: () => import('./Modules/file/file.module').then(m => m.FileModule),
+            canActivate: [AuthGuard]
+        },
+        {
+            path: 'files/create-request',
+            loadChildren: () => import('./Modules/file/file.module').then(m => m.FileModule),
+            canActivate: [AuthGuard]
+        },
+        {
+            path: 'files/valid-request',
+            loadChildren: () => import('./Modules/file/file.module').then(m => m.FileModule),
             canActivate: [AuthGuard]
         }]
     },

@@ -1,0 +1,62 @@
+
+  <p-table [value]="files"
+           #dt
+           (onPage)="files.length"
+           [paginator]="true"
+           [rows]="5"
+           [rowsPerPageOptions]="[5,10,20,50,100]"
+           [totalRecords]="files.length"
+           [globalFilterFields]="cols"
+  >
+    <ng-template pTemplate="paginatorleft" let-state>
+      <b>{{'Total Records' | translate}}: {{dt._totalRecords}}</b>
+    </ng-template>
+    <ng-template pTemplate="caption">
+      <div style="text-align: right">
+        <em class="fa fa-search" style="margin:4px 4px 0 0"></em>
+        <input type="text" pInputText size="20" placeholder="Global Filter"
+               (input)="dt.filterGlobal($event.target['value'], 'contains')"
+               style="width:auto">
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let col of cols">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-employee>
+      <tr>
+        <td *ngFor="let col of cols">
+          <div *ngIf="col.field != 'action' && col.field != 'type'">{{employee[col.field]}}</div>
+          <div *ngIf="col.field === 'type'">{{getType(employee.type)}}</div>
+          <div *ngIf="col.field == 'action'" style="text-align: center">
+            <button *ngIf="employee.file !== ''" class="delRow btn btn-info btn-sm btn-md waves-effect waves-light"
+                     (click)="donwloadFile(employee.file)"
+                     style=" margin: 0px 5px; padding: 8px 12px;">
+              <em class="fas fa-download"></em>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-toast position="center" key="c" (onClose)="onReject()" [modal]="true" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+      <div style="text-align: center">
+        <i class="pi pi-download" style="font-size: 3em"></i>
+        <h3>{{message.summary}}</h3>
+        <p>{{message.detail}}</p>
+      </div>
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-6">
+          <button type="button" pButton (click)="donwload()" label="Yes" class="ui-button-info"></button>
+        </div>
+        <div class="ui-g-6">
+          <button type="button" (click)="onReject()" pButton label="No" class="ui-button-danger"></button>
+        </div>
+      </div>
+    </ng-template>
+  </p-toast>

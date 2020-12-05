@@ -1,0 +1,35 @@
+<p-messages [(value)]="msgs"></p-messages>
+<div class="ui-g dashboard-card">
+  <div class="ui-g-6 ui-md-3">
+    <p-card styleClass="overview-box-1 label">
+      Employee<h1>100</h1>
+    </p-card>
+  </div>
+  <div class="ui-g-6 ui-md-3">
+    <p-card styleClass="overview-box-2 label">
+      Administrateur<h1>5</h1>
+    </p-card>
+  </div>
+  <div class="ui-g-6 ui-md-3">
+    <p-card styleClass="overview-box-3 label">
+      RH<h1>10</h1>
+    </p-card>
+  </div>
+  <div class="ui-g-6 ui-md-3">
+    <p-card styleClass="overview-box-4 label">
+      Users<h1>115</h1>
+    </p-card>
+  </div>
+</div>
+<div class="ui-g">
+  <div class="ui-g-12 ui-md-6">
+    <p-card>
+      <p-chart type="doughnut" [data]="doughnutChartData" [height]="200" [width]="200"></p-chart>
+    </p-card>
+  </div>
+  <div class="ui-g-12 ui-md-6">
+    <p-card>
+      <p-chart type="bar" [data]="barChartData" [height]="200" [width]="200"></p-chart>
+    </p-card>
+  </div>
+</div>

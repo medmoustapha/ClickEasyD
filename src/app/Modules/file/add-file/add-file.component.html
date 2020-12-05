@@ -1,0 +1,45 @@
+<app-header-breadcrumb></app-header-breadcrumb>
+<p-panel >
+  <p-header style="font-size: 18px; font-weight: bold">
+    {{'Create Request' | translate}}
+  </p-header>
+  <form [formGroup]="form">
+    <div class="p-grid p-fluid">
+      <div class="p-col-12 p-md-6">
+        <div class="p-inputgroup">
+      <span class="p-inputgroup-addon label">
+        Title
+      </span>
+          <input type="text" formControlName="title" pInputText size="50">
+        </div>
+      </div>
+      <div class="p-col-12 p-md-6">
+        <div class="p-inputgroup">
+      <span class="p-inputgroup-addon label">
+        Type
+      </span>
+          <p-dropdown [options]="fileTypes" formControlName="type" optionLabel="label"
+                      [filter]="true" filterBy="label"
+                      [showClear]="true" placeholder="Select a Type">
+          </p-dropdown>
+        </div>
+      </div>
+      <div class="p-col-12 p-md-12">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon label">Description</span>
+          <textarea formControlName="title" rows="5" cols="30" pInputTextarea></textarea>
+        </div>
+      </div>
+
+      <div class="p-col-12 p-md-12">
+        <div class="row">
+          <div class="col col-12">
+            <button (click)="onSubmit()" [disabled]="form.invalid"
+                    style="float: right; width: 77px"  pButton type="button"
+                    label="Save" class="ui-button-success"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</p-panel>
